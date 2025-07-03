@@ -19,9 +19,9 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-    volumes:
+    volumes: # db_data는 Docker 볼륨으로, MySQL 데이터가 저장됩니다. 
       - db_data:/var/lib/mysql
       - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
-volumes:
+volumes: # 이 부분은 Docker 볼륨을 정의합니다.
   db_data:
